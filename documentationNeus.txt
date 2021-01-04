@@ -1,0 +1,84 @@
+django-admin startproject => Criou o projeto
+django-admin startapp => Cria uma aplicação dentro do projeto
+
+MVC -> MTV
+Model -> Views -> Templates
+no Django as Views sao os controles
+"     "   os Templates são as páginas
+
+# Start server
+python manage.py runserver
+
+# View
+A urls.py da aplicação é tipo o router que puxa as funções definidas no urls.py
+É bom ter um urls.py em cada aplicação.
+no projeto da um path('', include('core.urls'))
+
+# Fazer DB relacional
+python manage.py makemigrations
+> Vai criar migrations do models.py
+
+python manage.py migrations
+> Vai efetivar as mudanças
+
+
+# DB no Shell
+python manage.py shell
+from core.models import Produto
+produto = Produto(nome="Atari", preco=2600, estoque=35) #chama a funcao do models.py
+produto.save()
+
+
+# Gerar statics pra produção
+python manage.py collectstatic
+
+
+# MYSQL
+pip install MySQL
+python manage.py migrate
+
+# MYSQL CONF settings.py:
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': 'django2',
+        'USER': 'pycharm',
+        'PASSWORD': 'Enigma5266!',
+        'HOST': 'localhost',
+        'PORT': '3306'
+    }
+}
+
+
+# Requirements
+pip freeze > requirements.txt
+pip install -r requirements.txt
+pip uninstall $MODULO
+pip uninstall -r requirements.txt
+
+
+# Heroku
+heroku logs --tail
+heroku run python manage.py createsuperuser
+heroku pg:reset DATABASE_URL
+heroku run python manage.py migrate
+
+# Pacotes pip
+pip install django # django
+pip install social-auth-app-django # todos sociais
+pip install django-bootstrap4 # Bootstrap
+
+# Traducao blob
+from textblo import Textblob
+texto = TextBlob('Evolua seu lado geek!').translate(to='en')
+No model e forms é gettext_lazy as _
+na view é gettext as _
+nos templates é {% load i18n %}
+dai {% trans 'bababa' %}
+python manage.py makemessages -l es
+
+
+# Criando env e usando
+python3 -m venv env
+source env/bin/activate
