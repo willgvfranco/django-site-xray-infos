@@ -27,13 +27,15 @@ def busca(request):
         termo = 'http://' + termo
         print(termo)
     responseb = builtwith(termo)
+    charmander = whois.whois(termo)
     print(f'response: {responseb}')
 
     if bool(responseb):
         responseJson = json.dumps(responseb)
         return render(request, 'busca.html', {
             'nome': 'teste',
-            'resposta': responseJson
+            'resposta': responseb,
+            'whowho': charmander
         })
     else:
         return redirect('index')

@@ -12,31 +12,41 @@
         </form>
 
         <div class="mb-3"></div>
-
-        <table class="table">
+<div class="table-responsive">
+        <table class="table table-striped">
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Nome</th>
-              <th>Sobrenome</th>
-              <th>Telefone</th>
-              <th>Categoria</th>
+              <th>Chave</th>
+              <th>Valor</th>
+
             </tr>
           </thead>
           <tbody>
             {% comment %} {% for c in resposta %} {% endcomment %}
             {% if resposta %}
-              
-            <tr>
-              <td>{{resposta}}</td>
-            </tr>
+                {% for key, value in resposta.items %}
+                <tr>
+                    <td>{{key}}</td>
+                    <td>{{value}}</td>
+                </tr>
+              {% endfor %}
+
             {% endif %}
+             {% if whowho %}
+              {% for key, value in whowho.items %}
+                <tr>
+                    <td>{{key}}</td>
+                    <td>{{value}}</td>
+                </tr>
+              {% endfor %}
             
+            {% endif %}
             {% comment %} {% endfor %} {% endcomment %}
             
          
           </tbody>
         </table>
+        </div>
 {% endblock %}
 <h1 class="mt-5">Retorno</h1>
 
