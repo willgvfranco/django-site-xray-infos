@@ -1,27 +1,39 @@
 from django.shortcuts import render, redirect
 from builtwith import *
 from django.views.generic import View
-
+from django.contrib import messages
+import json
 from django.views.generic import TemplateView
 # Create your views here.
+import whois
 
 
-# def index(request):
-#     return render(request, 'index.html', {
-#         'teste': 'teste'
-#     })
+def index(request):
+    return render(request, 'index.html', {
+        'teste': 'teste'
+    })
 
 
 def busca(request):
-    # termo = request.GET.get('termourl')
-    termo = 'globo.com'
+    termo = request.GET.get('termourl')
+    # termo = 'globo.com'
+    if termo is None or not termo:
+        messages.add_message(request, messages.ERROR, 'Texto vazio')
+        return redirect('index')
+
     if 'http' in termo:
-        print('oi')
+        print('termo ok')
     else:
         termo = 'http://' + termo
         print(termo)
     responseb = builtwith(termo)
     print(f'response: {responseb}')
 
-
-busca('a')
+    if bool(responseb):
+        responseJson = json.dumps(responseb)
+        return render(request, 'busca.html', {
+            'nome': 'teste',
+            'resposta': responseJson
+        })
+    else:
+        return redirect('index')

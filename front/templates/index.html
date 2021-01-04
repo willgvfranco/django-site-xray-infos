@@ -1,21 +1,6 @@
-{% load static %}
-{% load bootstrap4 %}
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% bootstrap_css %}
+ {% extends 'base.html' %}
 
-    <title>Raio X de Sites</title>
-</head>
-<body>
-
-    <div style="margin-top:2em; width:80%; margin-left:auto;margin-right:auto">
-    
-     <div class="container">
-
-<div style="max-width: 600px; margin-left:auto; margin-right:auto">
+{% block conteudo %}
         <form method="get" action="{% url 'busca' %}">
         <legend>Raio X de sites</legend>
             <div class="mb-3">
@@ -25,10 +10,4 @@
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-</div>
-    </div>
-    </div>
-
-    {% bootstrap_javascript jquery='full' %}
-</body>
-</html>
+{% endblock %}

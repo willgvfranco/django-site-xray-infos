@@ -1,0 +1,45 @@
+ {% extends 'base.html' %}
+
+{% block conteudo %}
+        <form method="get" action="{% url 'busca' %}">
+        <legend>Retorno</legend>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Site para pesquisar</label>
+                <input class="form-control" type="search" value="" id="exampleInputEmail1" name="termourl">
+                {% comment %} <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> {% endcomment %}
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <div class="mb-3"></div>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>Sobrenome</th>
+              <th>Telefone</th>
+              <th>Categoria</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% comment %} {% for c in resposta %} {% endcomment %}
+            {% if resposta %}
+              
+            <tr>
+              <td>{{resposta}}</td>
+            </tr>
+            {% endif %}
+            
+            {% comment %} {% endfor %} {% endcomment %}
+            
+         
+          </tbody>
+        </table>
+{% endblock %}
+<h1 class="mt-5">Retorno</h1>
+
+        
+
+
