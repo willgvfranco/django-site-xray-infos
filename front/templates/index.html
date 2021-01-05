@@ -3,12 +3,12 @@
 {% block conteudo %}
         <form method="get" action="{% url 'busca' %}">
          {% csrf_token %}
-        <legend>Raio X de sites</legend>
+        <h1>Raio X de sites</h1>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Site para pesquisar</label>
                 <input class="form-control" type="search" value="" id="exampleInputEmail1" name="termourl">
                 {% comment %} <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> {% endcomment %}
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Analisar</button>
         </form>
 {% endblock %}

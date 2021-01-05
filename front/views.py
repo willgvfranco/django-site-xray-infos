@@ -29,11 +29,11 @@ def busca(request):
     responseb = builtwith(termo)
     charmander = whois.whois(termo)
     print(f'response: {responseb}')
-
+    linkgoogle = 'https://developers.google.com/speed/pagespeed/insights/?url=' + termo
     if bool(responseb):
         responseJson = json.dumps(responseb)
         return render(request, 'busca.html', {
-            'nome': 'teste',
+            'nome': linkgoogle,
             'resposta': responseb,
             'whowho': charmander
         })
