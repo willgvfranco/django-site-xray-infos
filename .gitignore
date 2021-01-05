@@ -137,3 +137,5 @@ keys
 
 # Cython debug symbols
 cython_debug/
+keys.py
+keys.py
