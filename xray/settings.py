@@ -26,7 +26,7 @@ SECRET_KEY = key
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['xray.neustren.com.br/', '127.0.0.1']
+ALLOWED_HOSTS = ['xray.neustren.com.br', '127.0.0.1']
 
 
 # Application definition
